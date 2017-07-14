@@ -10,7 +10,6 @@
   "dependencies": {
     "react": "16.0.0-alpha.12",
     "react-native": "0.46.2",
-    "react-native-carousel-view": "0.3.2",
     "react-native-image-carousel": "file:../"
   },
   "devDependencies": {

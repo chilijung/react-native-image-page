@@ -4091,13 +4091,6 @@ react-mixin@^3.0.5:
     object-assign "^4.0.1"
     smart-mixin "^2.0.0"
 
-react-native-carousel-view@0.3.1:
-  version "0.3.1"
-  resolved "https://registry.npmjs.org/react-native-carousel-view/-/react-native-carousel-view-0.3.1.tgz#882ca8cdfa30750e7b90e1f620fae096b150e8a2"
-  dependencies:
-    react-mixin "^3.0.5"
-    react-timer-mixin "^0.13.3"
-
 react-native-carousel-view@0.3.2:
   version "0.3.2"
   resolved "https://registry.npmjs.org/react-native-carousel-view/-/react-native-carousel-view-0.3.2.tgz#df1c6ff3054c5394c6f5b97d50f42e70d36640b2"
@@ -4108,7 +4101,7 @@ react-native-carousel-view@0.3.2:
 "react-native-image-carousel@file:../":
   version "0.1.0"
   dependencies:
-    react-native-carousel-view "0.3.1"
+    react-native-carousel-view "0.3.2"
     react-native-image-zoom-viewer "^2.0.6"
 
 react-native-image-pan-zoom@^2.0.1:

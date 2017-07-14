@@ -31,7 +31,7 @@ type Props = {
   contentContainerStyle?: {[attr: string]: any},
   children: any,
   onPageChange?: (number) => void,
-  images: any[]
+  images: {uri: string}[]
 }
 
 export default class ImageCarousel extends Component {
