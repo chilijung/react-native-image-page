@@ -11,8 +11,36 @@ import ImageViewer from 'react-native-image-zoom-viewer';
 import Carousel from 'react-native-carousel-view';
 import TouchableImage from './touchable-image';
 
+type Props = {
+  hideIndicators: boolean,
+  indicatorColor: string,
+  indicatorSize: number,
+  inactiveIndicatorColor: string,
+  indicatorAtBottom: boolean,
+  indicatorOffset: number,
+  indicatorText: string,
+  inactiveIndicatorText: string,
+  width: ?number,
+  height: number,
+  initialPage: number,
+  indicatorSpace: number,
+  animate: boolean,
+  delay: number,
+  loop: boolean,
+  contentContainerStyle?: {[attr: string]: any},
+  children: any,
+  onPageChange?: (number) => void,
+  images: any[]
+}
+
 export default class ImageCarousel extends Component {
-  constructor(props) {
+  props: Props
+  state: {
+    showModal: boolean,
+    imageIndex: number,
+  }
+
+  constructor(props: Props) {
     super(props);
     this.state = {
       showModal: false,
@@ -20,12 +48,18 @@ export default class ImageCarousel extends Component {
     };
 
     (this: any)._onPressImg = this._onPressImg.bind(this);
+    (this: any)._updateIndex = this._updateIndex.bind(this);
   }
 
   _onPressImg(i) {
-    console.log('show modal')
     this.setState({
       showModal: true,
+      imageIndex: i,
+    });
+  }
+
+  _updateIndex(i) {
+    this.setState({
       imageIndex: i,
     });
   }
@@ -39,6 +73,8 @@ export default class ImageCarousel extends Component {
           visible={showModal}
           transparent={true}>
           <ImageViewer
+            onChange={this._updateIndex}
+            saveToLocalByLongPress={false}
             imageUrls={images.map((img) => {
               let modifyImg = img;
               if (img.uri) {
