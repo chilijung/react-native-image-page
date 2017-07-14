@@ -2,6 +2,12 @@
 
 react-native image carousel, with zoom-pan gestures and full screen support.
 
+## Install
+
+```
+npm install react-native-image-page
+```
+
 ## Demo
 <table>
   <tr>
