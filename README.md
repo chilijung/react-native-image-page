@@ -110,8 +110,6 @@ AppRegistry.registerComponent('example', () => example);
 
 ## See also
 
-- https://github.com/Canner/react-native-image-page - a react-native image carousel
-
 based on:
 
 - react-native carousel, support in both Android and iOS
