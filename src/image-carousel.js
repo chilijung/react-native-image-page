@@ -10,6 +10,7 @@ import {
 import ImageViewer from 'react-native-image-zoom-viewer';
 import Carousel from 'react-native-carousel-view';
 import TouchableImage from './touchable-image';
+import Header from './viewer-header';
 
 type Props = {
   hideIndicators: boolean,
@@ -49,6 +50,7 @@ export default class ImageCarousel extends Component {
 
     (this: any)._onPressImg = this._onPressImg.bind(this);
     (this: any)._updateIndex = this._updateIndex.bind(this);
+    (this: any)._closeModal = this._closeModal.bind(this);
   }
 
   _onPressImg(i) {
@@ -64,6 +66,12 @@ export default class ImageCarousel extends Component {
     });
   }
 
+  _closeModal() {
+    this.setState({
+      showModal: false,
+    });
+  }
+
   render() {
     const {images, ...rest} = this.props;
     const {showModal, imageIndex} = this.state;
@@ -73,6 +81,7 @@ export default class ImageCarousel extends Component {
           visible={showModal}
           transparent={true}>
           <ImageViewer
+            renderHeader={() => <Header onClose={() => this._closeModal()}/>}
             onChange={this._updateIndex}
             saveToLocalByLongPress={false}
             imageUrls={images.map((img) => {
