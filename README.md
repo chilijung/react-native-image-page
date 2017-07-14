@@ -1,4 +1,4 @@
-# react-native-image-carousel
+# react-native-image-page
 
 react-native image carousel, with zoom-pan gestures and full screen support.
 
