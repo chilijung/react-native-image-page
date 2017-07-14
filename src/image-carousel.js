@@ -8,30 +8,15 @@ import {
   Modal,
 } from 'react-native';
 import ImageViewer from 'react-native-image-zoom-viewer';
-import Carousel from 'react-native-carousel-view';
-import TouchableImage from './touchable-image';
 import Header from './viewer-header';
+import Carousel from './carousel';
 
 type Props = {
-  hideIndicators: boolean,
-  indicatorColor: string,
-  indicatorSize: number,
-  inactiveIndicatorColor: string,
   indicatorAtBottom: boolean,
   indicatorOffset: number,
-  indicatorText: string,
-  inactiveIndicatorText: string,
-  width: ?number,
-  height: number,
-  initialPage: number,
-  indicatorSpace: number,
-  animate: boolean,
-  delay: number,
-  loop: boolean,
-  contentContainerStyle?: {[attr: string]: any},
-  children: any,
-  onPageChange?: (number) => void,
-  images: {uri: string}[]
+  images: {uri: string}[],
+  renderHeader: ({[key: string]: any}, number) => void,
+  renderFooter: ({[key: string]: any}, number) => void,
 }
 
 export default class ImageCarousel extends Component {
@@ -39,6 +24,12 @@ export default class ImageCarousel extends Component {
   state: {
     showModal: boolean,
     imageIndex: number,
+    fromCarousel: boolean,
+  }
+
+  static defaultProps = {
+    renderHeader: () => {},
+    renderFooter: () => {},
   }
 
   constructor(props: Props) {
@@ -46,6 +37,7 @@ export default class ImageCarousel extends Component {
     this.state = {
       showModal: false,
       imageIndex: 0,
+      fromCarousel: false,
     };
 
     (this: any)._onPressImg = this._onPressImg.bind(this);
@@ -60,9 +52,10 @@ export default class ImageCarousel extends Component {
     });
   }
 
-  _updateIndex(i) {
+  _updateIndex(i, fromCarousel) {
     this.setState({
       imageIndex: i,
+      fromCarousel,
     });
   }
 
@@ -73,8 +66,18 @@ export default class ImageCarousel extends Component {
   }
 
   render() {
-    const {images, ...rest} = this.props;
-    const {showModal, imageIndex} = this.state;
+    const {images, renderHeader, renderFooter,
+      indicatorAtBottom, indicatorOffset, ...rest} = this.props;
+    const {showModal, imageIndex, fromCarousel} = this.state;
+    let extraPadding = {};
+
+    if ((typeof indicatorAtBottom === 'undefined' || indicatorAtBottom)
+      && indicatorOffset < 0) {
+      extraPadding = {paddingBottom: -indicatorOffset};
+    } else if (!indicatorAtBottom && indicatorOffset < 0) {
+      extraPadding = {paddingTop: -indicatorOffset};
+    }
+
     return (
       <View>
         <Modal
@@ -94,22 +97,20 @@ export default class ImageCarousel extends Component {
             })}
             index={imageIndex}/>
         </Modal>
-        <Carousel
-          {...rest}
-          initialPage={imageIndex}
-          >
-          {
-            images.map((img, i) => {
-              return (
-                <TouchableImage
-                  key={i}
-                  image={img}
-                  onPress={() => this._onPressImg(i)}
-                  />
-              );
-            })
-          }
-        </Carousel>
+        {renderHeader(images[imageIndex], imageIndex)}
+        <View style={extraPadding}>
+          <Carousel
+            {...rest}
+            indicatorOffset={indicatorOffset}
+            indicatorAtBottom={indicatorAtBottom}
+            images={images}
+            initialPage={imageIndex}
+            fromCarousel={fromCarousel}
+            onPressImage={this._onPressImg}
+            onPageChange={this._updateIndex}
+            />
+        </View>
+        {renderFooter(images[imageIndex], imageIndex)}
       </View>
     );
   }

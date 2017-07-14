@@ -59,7 +59,9 @@ ImageCarousel props
 
 ```js
 type ImageCarouselProps = {
-  images: {uri: string}[]
+  images: {uri: string}[],
+  renderHeader: ({[key: string]: any}, number) => void,
+  renderFooter: ({[key: string]: any}, number) => void,
 }
 ```
 
@@ -89,6 +91,8 @@ export default class example extends Component {
           indicatorOffset={-20}
           indicatorText="✽"
           indicatorColor="red"
+          renderHeader={(datum, i) => <Text>Header Image {i}</Text>}
+          renderFooter={(datum, i) => <Text>Footer {i}</Text>}
           images={[{
             uri: 'https://avatars3.githubusercontent.com/u/7250217?v=4&s=200',
           }, {
