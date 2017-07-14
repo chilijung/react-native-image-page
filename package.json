@@ -25,7 +25,7 @@
     "react-native": "^0.46.2"
   },
   "dependencies": {
-    "react-native-carousel-view": "0.3.0",
+    "react-native-carousel-view": "0.3.1",
     "react-native-image-zoom-viewer": "^2.0.6"
   }
 }

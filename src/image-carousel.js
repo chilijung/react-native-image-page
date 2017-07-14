@@ -78,6 +78,7 @@ export default class ImageCarousel extends Component {
     return (
       <View>
         <Modal
+          onRequestClose={this._closeModal}
           visible={showModal}
           transparent={true}>
           <ImageViewer

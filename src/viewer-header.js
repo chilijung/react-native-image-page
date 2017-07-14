@@ -26,12 +26,12 @@ export default class ViewHeader extends Component {
 
 const styles = StyleSheet.create({
   crossContainer: {
-    zIndex: 10000,
-  },
-  cross: {
     position: 'absolute',
     right: 30,
     top: 30,
+    zIndex: 10000,
+  },
+  cross: {
     color: 'white',
     fontSize: 30,
   },
