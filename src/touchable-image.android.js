@@ -20,6 +20,7 @@ export default class TouchableImage extends Component {
         style={style}
         onPress={onPress}
         background={TouchableNativeFeedback.SelectableBackground()}>
+        pressRetentionOffset {top: 5, left: 5, bottom: 5, right: 5} 
         <Image
           style={style}
           source={image}
