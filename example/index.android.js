@@ -9,7 +9,7 @@ import {
   AppRegistry,
   View,
 } from 'react-native';
-import ImageCarousel from 'react-native-image-carousel';
+import ImageCarousel from 'react-native-image-page';
 
 export default class example extends Component {
   render() {
