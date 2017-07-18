@@ -3,24 +3,22 @@
  */
 
 import React, {Component} from 'react';
-import {
-  TouchableOpacity,
-  Image,
-} from 'react-native';
-import type {Props} from './types';
+import {TouchableOpacity} from 'react-native';
+import ImageWithLoading from './image';
+import type {TouchableImageProps} from './types';
 
 export default class TouchableImage extends Component {
-  props: Props
+  props: TouchableImageProps
+
   render() {
     const {onPress, style, image} = this.props;
     return (
       <TouchableOpacity
         style={style}
         onPress={onPress}>
-        <Image
+        <ImageWithLoading
           style={style}
           source={image}
-          resizeMode="contain"
           />
       </TouchableOpacity>
     );

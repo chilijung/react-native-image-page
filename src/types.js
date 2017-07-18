@@ -1,5 +1,10 @@
-export type Props = {
+export type TouchableImageProps = {
   onPress: () => void,
+  style?: ?{[attr: string]: any},
+  image: any,
+}
+
+export type ImageProps = {
   style?: ?{[attr: string]: any},
   image: any,
 }
