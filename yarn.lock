@@ -2991,9 +2991,9 @@ react-mixin@^3.0.5:
     object-assign "^4.0.1"
     smart-mixin "^2.0.0"
 
-react-native-carousel-view@0.3.2:
-  version "0.3.2"
-  resolved "https://registry.npmjs.org/react-native-carousel-view/-/react-native-carousel-view-0.3.2.tgz#df1c6ff3054c5394c6f5b97d50f42e70d36640b2"
+react-native-carousel-view@0.4.0:
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/react-native-carousel-view/-/react-native-carousel-view-0.4.0.tgz#1846e9dbb63b911c4dab25517cc3f9b0eeaee210"
   dependencies:
     react-mixin "^3.0.5"
     react-timer-mixin "^0.13.3"
