@@ -21,6 +21,13 @@ export default class TouchableImage extends Component {
         onPress={onPress}
         pressRetentionOffset={{top: 1, left: 1, bottom: 1, right: 1}}
         background={TouchableNativeFeedback.SelectableBackground()}>
+        {
+          /*
+            Tried with <ImageWidthLoading/> loading effect, but not succeed.
+            <TouchableNativeFeedback/> have problem with nested children.
+            Don't know why. Need to be fixed.
+          */
+        }
         <Image
           style={style}
           source={image}
