@@ -30,7 +30,7 @@ export default class example extends Component {
           renderHeader={(datum, i) => <Text>Header Image {i}</Text>}
           renderFooter={(datum, i) => <Text>Footer {i}</Text>}
           images={[{
-            uri: 'https://images.unsplash.com/photo-1456305951335-bb8134aeab8a'
+            uri: 'https://images.unsplash.com/photo-1456305951335-bb8134aeab8a',
           }, {
             uri: 'https://avatars3.githubusercontent.com/u/7250217?v=4&s=200',
           }, {

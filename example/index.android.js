@@ -27,6 +27,8 @@ export default class example extends Component {
           indicatorText="✽"
           indicatorColor="red"
           images={[{
+            uri: 'https://images.unsplash.com/photo-1456305951335-bb8134aeab8a',
+          }, {
             uri: 'https://avatars3.githubusercontent.com/u/7250217?v=4&s=200',
           }, {
             uri: 'https://avatars7.githubusercontent.com/u/1216029?v=4&s=460',
