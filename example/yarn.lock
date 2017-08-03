@@ -1841,13 +1841,6 @@ escodegen@^1.6.1:
   optionalDependencies:
     source-map "~0.2.0"
 
-eslint-plugin-prettier@^2.0.1:
-  version "2.1.2"
-  resolved "https://registry.npmjs.org/eslint-plugin-prettier/-/eslint-plugin-prettier-2.1.2.tgz#4b90f4ee7f92bfbe2e926017e1ca40eb628965ea"
-  dependencies:
-    fast-diff "^1.1.1"
-    jest-docblock "^20.0.1"
-
 esprima@^2.7.1:
   version "2.7.3"
   resolved "https://registry.npmjs.org/esprima/-/esprima-2.7.3.tgz#96e3b70d5779f6ad49cd032673d1c312767ba581"
@@ -1979,10 +1972,6 @@ fancy-log@^1.1.0:
   dependencies:
     chalk "^1.1.1"
     time-stamp "^1.0.0"
-
-fast-diff@^1.1.1:
-  version "1.1.1"
-  resolved "https://registry.npmjs.org/fast-diff/-/fast-diff-1.1.1.tgz#0aea0e4e605b6a2189f0e936d4b7fbaf1b7cfd9b"
 
 fast-levenshtein@~2.0.4:
   version "2.0.6"
@@ -2301,9 +2290,9 @@ handlebars@^4.0.3:
   optionalDependencies:
     uglify-js "^2.6"
 
-"happypack@github:amireh/happypack#3256a3380dde2e06e3ad2ca3b41e9a81fd4f9673":
-  version "3.0.3"
-  resolved "https://codeload.github.com/amireh/happypack/tar.gz/3256a3380dde2e06e3ad2ca3b41e9a81fd4f9673"
+happypack@3.1.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/happypack/-/happypack-3.1.0.tgz#8bc55e3701bacff718d3889cb88b5021641cad59"
   dependencies:
     async "1.5.0"
     json-stringify-safe "5.0.1"
@@ -2366,16 +2355,15 @@ hasha@^2.2.0:
     is-stream "^1.0.1"
     pinkie-promise "^2.0.0"
 
-"haul@https://github.com/Canner/haul.git#master":
-  version "1.0.0-beta.2"
-  resolved "https://github.com/Canner/haul.git#c210ca0ee3479e4fbfb446ad094f93bb0396cf6f"
+haul@1.0.0-beta.4:
+  version "1.0.0-beta.4"
+  resolved "https://registry.yarnpkg.com/haul/-/haul-1.0.0-beta.4.tgz#9c2c7c2e771940cd8016feb8cca15932436ea1a1"
   dependencies:
     babel-core "^6.24.0"
     babel-loader "^6.4.1"
     babel-plugin-transform-flow-strip-types "^6.22.0"
     babel-plugin-transform-object-rest-spread "^6.23.0"
     babel-preset-env "^1.2.2"
-    babel-preset-react-native "^1.9.1"
     babel-register "^6.24.0"
     camelcase-keys "^4.0.0"
     case-sensitive-paths-webpack-plugin "^2.0.0"
@@ -2386,9 +2374,8 @@ hasha@^2.2.0:
     dedent "^0.7.0"
     dlv "^1.1.0"
     escape-string-regexp "^1.0.5"
-    eslint-plugin-prettier "^2.0.1"
     express "^4.15.2"
-    happypack "github:amireh/happypack#3256a3380dde2e06e3ad2ca3b41e9a81fd4f9673"
+    happypack "3.1.0"
     hasha "^2.2.0"
     image-size "^0.5.1"
     inquirer "^3.0.6"
@@ -2817,7 +2804,7 @@ jest-diff@^20.0.3:
     jest-matcher-utils "^20.0.3"
     pretty-format "^20.0.3"
 
-jest-docblock@^20.0.1, jest-docblock@^20.0.3:
+jest-docblock@^20.0.3:
   version "20.0.3"
   resolved "https://registry.npmjs.org/jest-docblock/-/jest-docblock-20.0.3.tgz#17bea984342cc33d83c50fbe1545ea0efaa44712"
 
@@ -3629,10 +3616,6 @@ npmlog@^4.0.2:
     gauge "~2.7.3"
     set-blocking "~2.0.0"
 
-nt-transmit-transparently@^1.0.7:
-  version "1.0.7"
-  resolved "https://registry.npmjs.org/nt-transmit-transparently/-/nt-transmit-transparently-1.0.7.tgz#345cf3ffda06ba1bd629935bafac9e7820385076"
-
 number-is-nan@^1.0.0:
   version "1.0.1"
   resolved "https://registry.npmjs.org/number-is-nan/-/number-is-nan-1.0.1.tgz#097b602b53422a522c1afb8790318336941a011d"
@@ -4084,37 +4067,6 @@ react-devtools-core@2.3.1:
     shell-quote "^1.6.1"
     ws "^2.0.3"
 
-react-mixin@^3.0.5:
-  version "3.0.5"
-  resolved "https://registry.npmjs.org/react-mixin/-/react-mixin-3.0.5.tgz#e0b7b6713fdc9ddc429267df808b6ac5184c6706"
-  dependencies:
-    object-assign "^4.0.1"
-    smart-mixin "^2.0.0"
-
-react-native-carousel-view@0.3.2:
-  version "0.3.2"
-  resolved "https://registry.npmjs.org/react-native-carousel-view/-/react-native-carousel-view-0.3.2.tgz#df1c6ff3054c5394c6f5b97d50f42e70d36640b2"
-  dependencies:
-    react-mixin "^3.0.5"
-    react-timer-mixin "^0.13.3"
-
-"react-native-image-carousel@file:../":
-  version "0.2.0"
-  dependencies:
-    react-native-carousel-view "0.3.2"
-    react-native-image-zoom-viewer "^2.0.6"
-
-react-native-image-pan-zoom@^2.0.1:
-  version "2.0.4"
-  resolved "https://registry.npmjs.org/react-native-image-pan-zoom/-/react-native-image-pan-zoom-2.0.4.tgz#c8822294ff057b1d421c09f59a08588fa0fbed6b"
-
-react-native-image-zoom-viewer@^2.0.6:
-  version "2.0.6"
-  resolved "https://registry.npmjs.org/react-native-image-zoom-viewer/-/react-native-image-zoom-viewer-2.0.6.tgz#e4d9a65db1e0ab06764bc5312617cfb7d9959b9d"
-  dependencies:
-    nt-transmit-transparently "^1.0.7"
-    react-native-image-pan-zoom "^2.0.1"
-
 react-native@0.46.2:
   version "0.46.2"
   resolved "https://registry.npmjs.org/react-native/-/react-native-0.46.2.tgz#e87a80fa8bb949cbd0562fa11399293852a447aa"
@@ -4218,7 +4170,7 @@ react-test-renderer@16.0.0-alpha.12:
     fbjs "^0.8.9"
     object-assign "^4.1.0"
 
-react-timer-mixin@^0.13.2, react-timer-mixin@^0.13.3:
+react-timer-mixin@^0.13.2:
   version "0.13.3"
   resolved "https://registry.npmjs.org/react-timer-mixin/-/react-timer-mixin-0.13.3.tgz#0da8b9f807ec07dc3e854d082c737c65605b3d22"
 
@@ -4631,10 +4583,6 @@ slash@^1.0.0:
 slide@^1.1.5:
   version "1.1.6"
   resolved "https://registry.npmjs.org/slide/-/slide-1.1.6.tgz#56eb027d65b4d2dce6cb2e2d32c4d4afc9e1d707"
-
-smart-mixin@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.npmjs.org/smart-mixin/-/smart-mixin-2.0.0.tgz#a34a1055e32a75b30d2b4e3ca323dc99cb53f437"
 
 sntp@1.x.x:
   version "1.0.9"

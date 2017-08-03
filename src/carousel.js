@@ -13,7 +13,6 @@ type Props = {
   onPageChange: (number, boolean) => void,
 }
 
-
 export default class Carosuel extends Component {
   props: Props
   scrolling: boolean
