@@ -30,7 +30,7 @@ npm install react-native-image-page
 
 ## Props
 
-Most of the props in `react-native-image-carousel` is inherit from https://github.com/Canner/react-native-carousel-view
+Most of the props in `react-native-image-page` is inherit from https://github.com/Canner/react-native-carousel-view
 
 ```js
 type Props = {
@@ -74,7 +74,7 @@ import {
   AppRegistry,
   View,
 } from 'react-native';
-import ImageCarousel from 'react-native-image-carousel';
+import ImageCarousel from 'react-native-image-page';
 
 export default class example extends Component {
   render() {
