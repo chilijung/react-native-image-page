@@ -1,5 +1,7 @@
 # react-native-image-page
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/Canner/react-native-image-page.svg)](https://greenkeeper.io/)
+
 react-native image carousel, with zoom-pan gestures and full screen support.  Work on both iOS and Android
 
 ## Install
