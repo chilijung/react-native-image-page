@@ -35,12 +35,14 @@ export default class ImageCarousel extends Component {
   static defaultProps = {
     renderHeader: () => {},
     renderFooter: () => {},
+    scrollThumbs: true,
+    showModal: false,
   }
 
   constructor(props: Props) {
     super(props);
     this.state = {
-      showModal: (this.props.showModal ? true: false),
+      showModal: false,
       imageIndex: 0,
       fromCarousel: false,
     };
@@ -50,6 +52,11 @@ export default class ImageCarousel extends Component {
     (this: any)._closeModal = this._closeModal.bind(this);
   }
 
+componentDidMount() {
+  if(this.props.showModal) {
+    this.setState({showModal:true})
+  }
+}
   _onPressImg(i) {
     this.setState({
       showModal: true,
