@@ -71,7 +71,7 @@ export default class ImageCarousel extends Component {
 
   render() {
     const {images, renderHeader, renderFooter,
-      indicatorAtBottom, indicatorOffset, scrollThumbs, ...rest} = this.props;
+      indicatorAtBottom, indicatorOffset, scrollThumbs, width, height, ...rest} = this.props;
     const {showModal, imageIndex, fromCarousel} = this.state;
     let extraPadding = {};
 
@@ -118,8 +118,8 @@ export default class ImageCarousel extends Component {
               <TouchableHighlight style={{flex:1}} onPress={() => this._onPressImg(0)}>
                 <ImageWithLoading style={{
                   flex: 1,
-                  width: 10000,
-                  height: 10000,
+                  width: width,
+                  height: height,
                 }} resizeMode="center" source={{uri: images[0].uri }} />
               </TouchableHighlight>
           )}
