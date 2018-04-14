@@ -52,8 +52,10 @@ export default class ImageCarousel extends Component {
     (this: any)._closeModal = this._closeModal.bind(this);
   }
 
-componentDidMount() {
+componentWillMount() {
+console.log("will mount")
   if(this.props.showModal) {
+console.log("set to true")
     this.setState({showModal:true})
   }
 }
