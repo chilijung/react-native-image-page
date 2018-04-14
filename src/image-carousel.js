@@ -40,7 +40,7 @@ export default class ImageCarousel extends Component {
   constructor(props: Props) {
     super(props);
     this.state = {
-      showModal: false,
+      showModal: (this.props.showModal ? true: false),
       imageIndex: 0,
       fromCarousel: false,
     };
@@ -82,10 +82,6 @@ export default class ImageCarousel extends Component {
     } else if (!indicatorAtBottom && indicatorOffset < 0) {
       extraPadding = {paddingTop: -indicatorOffset};
     }
-
-if(this.props.showModal) {
-  this.setState({showModal:true});
-}
 
     return (
       <View>
