@@ -19,7 +19,8 @@ type Props = {
   images: {uri: string}[],
   renderHeader: ({[key: string]: any}, number) => void,
   renderFooter: ({[key: string]: any}, number) => void,
-  scrollThumbs: boolean
+  scrollThumbs: boolean,
+  showModal: boolean
 }
 
 export default class ImageCarousel extends Component {
@@ -86,7 +87,7 @@ export default class ImageCarousel extends Component {
       <View>
         <Modal
           onRequestClose={this._closeModal}
-          visible={ (showModal || this.props.showModal) }
+          visible={ ( (showModal || this.props.showModal) ? true : false ) }
           transparent={true}>
           <ImageViewer
             renderHeader={() => <Header onClose={() => this._closeModal()}/>}
