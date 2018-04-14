@@ -83,11 +83,15 @@ export default class ImageCarousel extends Component {
       extraPadding = {paddingTop: -indicatorOffset};
     }
 
+if(this.props.showModal) {
+  this.setState({showModal:true});
+}
+
     return (
       <View>
         <Modal
           onRequestClose={this._closeModal}
-          visible={ ( (showModal || this.props.showModal) ? true : false ) }
+          visible={showModal}
           transparent={true}>
           <ImageViewer
             renderHeader={() => <Header onClose={() => this._closeModal()}/>}
