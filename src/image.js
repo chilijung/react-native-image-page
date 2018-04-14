@@ -9,7 +9,8 @@ import type {ImageProps} from './types';
 export default class ImageWithLoading extends Component {
   props: ImageProps
   state: {
-    loading: boolean
+    loading: boolean,
+    resizeMode: string
   }
 
   constructor(props: ImageProps) {
@@ -32,7 +33,7 @@ export default class ImageWithLoading extends Component {
   }
 
   render() {
-    const {style, source} = this.props;
+    const {style, source, resizeMode} = this.props;
     const {loading} = this.state;
     return (
       <View style={style}>
@@ -53,7 +54,7 @@ export default class ImageWithLoading extends Component {
           source={source}
           onLoadStart={this._onLoadStart}
           onLoadEnd={this._onLoadEnd}
-          resizeMode="contain"
+          resizeMode={resizeMode ? resizeMode : "contain"}
           />
       </View>
     );
