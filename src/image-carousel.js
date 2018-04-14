@@ -6,10 +6,12 @@ import React, {Component} from 'react';
 import {
   View,
   Modal,
+  TouchableHighlight,
 } from 'react-native';
 import ImageViewer from 'react-native-image-zoom-viewer';
 import Header from './viewer-header';
 import Carousel from './carousel';
+import ImageWithLoading from './image';
 
 type Props = {
   indicatorAtBottom: boolean,
@@ -17,6 +19,7 @@ type Props = {
   images: {uri: string}[],
   renderHeader: ({[key: string]: any}, number) => void,
   renderFooter: ({[key: string]: any}, number) => void,
+  scrollThumbs: boolean
 }
 
 export default class ImageCarousel extends Component {
@@ -25,6 +28,7 @@ export default class ImageCarousel extends Component {
     showModal: boolean,
     imageIndex: number,
     fromCarousel: boolean,
+    scrollThumbs: boolean,
   }
 
   static defaultProps = {
@@ -67,7 +71,7 @@ export default class ImageCarousel extends Component {
 
   render() {
     const {images, renderHeader, renderFooter,
-      indicatorAtBottom, indicatorOffset, ...rest} = this.props;
+      indicatorAtBottom, indicatorOffset, scrollThumbs, ...rest} = this.props;
     const {showModal, imageIndex, fromCarousel} = this.state;
     let extraPadding = {};
 
@@ -99,16 +103,26 @@ export default class ImageCarousel extends Component {
         </Modal>
         {renderHeader(images[imageIndex], imageIndex)}
         <View style={extraPadding}>
-          <Carousel
-            {...rest}
-            indicatorOffset={indicatorOffset}
-            indicatorAtBottom={indicatorAtBottom}
-            images={images}
-            initialPage={imageIndex}
-            fromCarousel={fromCarousel}
-            onPressImage={this._onPressImg}
-            onPageChange={this._updateIndex}
-            />
+          {(scrollThumbs ?
+              <Carousel
+                {...rest}
+                indicatorOffset={indicatorOffset}
+                indicatorAtBottom={indicatorAtBottom}
+                images={images}
+                initialPage={imageIndex}
+                fromCarousel={fromCarousel}
+                onPressImage={this._onPressImg}
+                onPageChange={this._updateIndex}
+                />
+            :
+              <TouchableHighlight style={{flex:1}} onPress={() => this._onPressImg(0)}>
+                <ImageWithLoading style={{
+                  flex: 1,
+                  width: 10000,
+                  height: 10000,
+                }} resizeMode="center" source={{uri: images[0].uri }} />
+              </TouchableHighlight>
+          )}
         </View>
         {renderFooter(images[imageIndex], imageIndex)}
       </View>
