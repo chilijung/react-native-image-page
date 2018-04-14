@@ -20,7 +20,8 @@ type Props = {
   renderHeader: ({[key: string]: any}, number) => void,
   renderFooter: ({[key: string]: any}, number) => void,
   scrollThumbs: boolean,
-  showModal: boolean
+  showModal: boolean,
+  handleModal: func,
 }
 
 export default class ImageCarousel extends Component {
@@ -42,7 +43,7 @@ export default class ImageCarousel extends Component {
   constructor(props: Props) {
     super(props);
     this.state = {
-      showModal: false,
+      showModal: this.props.showModal,
       imageIndex: 0,
       fromCarousel: false,
     };
@@ -52,18 +53,18 @@ export default class ImageCarousel extends Component {
     (this: any)._closeModal = this._closeModal.bind(this);
   }
 
-componentWillMount() {
-console.log("will mount")
-  if(this.props.showModal) {
-console.log("set to true")
-    this.setState({showModal:true})
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.showModal !== this.state.showModal) {
+      this.setState({ showModal: nextProps.showModal });
+    }
   }
-}
+
   _onPressImg(i) {
     this.setState({
       showModal: true,
       imageIndex: i,
     });
+    this.props.handleModal();
   }
 
   _updateIndex(i, fromCarousel) {
@@ -77,6 +78,7 @@ console.log("set to true")
     this.setState({
       showModal: false,
     });
+    this.props.handleModal();
   }
 
   render() {
@@ -125,7 +127,7 @@ console.log("set to true")
                 onPageChange={this._updateIndex}
                 />
             :
-              <TouchableHighlight style={{flex:1}} onPress={() => this._onPressImg(0)}>
+              <TouchableHighlight style={{flex:1}} onPress={() => this._onPressImg(imageIndex)}>
                 <ImageWithLoading style={{
                   flex: 1,
                   width: width,
