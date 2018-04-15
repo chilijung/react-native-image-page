@@ -102,6 +102,23 @@ export default class ImageCarousel extends Component {
           transparent={true}>
           <ImageViewer
             renderHeader={() => <Header onClose={() => this._closeModal()}/>}
+            loadingRender={() =>
+                      <View
+                          style={{
+                            justifyContent: 'center',
+                            alignItems: 'center',
+                          }}
+                        >
+                        <ActivityIndicator
+                          style={{
+                            flex: 1,
+                            justifyContent: 'center',
+                            alignItems: 'center',
+                          }}
+                          animating={true}
+                          />
+                      </View>
+                    }
             onChange={this._updateIndex}
             saveToLocalByLongPress={false}
             imageUrls={images.map((img) => {
@@ -128,11 +145,15 @@ export default class ImageCarousel extends Component {
                 />
             :
               <TouchableHighlight style={{flex:1}} onPress={() => this._onPressImg(imageIndex)}>
-                <ImageWithLoading style={{
-                  flex: 1,
-                  width: width,
-                  height: height,
-                }} resizeMode="center" source={{uri: images[0].uri }} />
+                <ImageWithLoading
+                  style={{
+                    flex: 1,
+                    width: width,
+                    height: height,
+                  }}
+                  resizeMode="center"
+                  source={{uri: images[0].uri }}
+                  />
               </TouchableHighlight>
           )}
         </View>
