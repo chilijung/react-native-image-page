@@ -7,6 +7,7 @@ import {
   View,
   Modal,
   TouchableHighlight,
+  ActivityIndicator,
 } from 'react-native';
 import ImageViewer from 'react-native-image-zoom-viewer';
 import Header from './viewer-header';
