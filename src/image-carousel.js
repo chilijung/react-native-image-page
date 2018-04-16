@@ -23,6 +23,7 @@ type Props = {
   scrollThumbs: boolean,
   showModal: boolean,
   handleModal: func,
+  supportedOrientations: array,
 }
 
 export default class ImageCarousel extends Component {
@@ -39,6 +40,7 @@ export default class ImageCarousel extends Component {
     renderFooter: () => {},
     scrollThumbs: true,
     showModal: false,
+    supportedOrientations: ['portrait', 'portrait-upside-down', 'landscape', 'landscape-left', 'landscape-right'],
   }
 
   constructor(props: Props) {
@@ -84,7 +86,7 @@ export default class ImageCarousel extends Component {
 
   render() {
     const {images, renderHeader, renderFooter,
-      indicatorAtBottom, indicatorOffset, scrollThumbs, width, height, ...rest} = this.props;
+      indicatorAtBottom, indicatorOffset, scrollThumbs, supportedOrientations, width, height, ...rest} = this.props;
     const {showModal, imageIndex, fromCarousel} = this.state;
     let extraPadding = {};
 
@@ -100,6 +102,7 @@ export default class ImageCarousel extends Component {
         <Modal
           onRequestClose={this._closeModal}
           visible={showModal}
+          supportedOrientations={supportedOrientations}
           transparent={true}>
           <ImageViewer
             renderHeader={() => <Header onClose={() => this._closeModal()}/>}
