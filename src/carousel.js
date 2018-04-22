@@ -3,7 +3,7 @@
  */
 
 import React, {Component} from 'react';
-import Carousel from 'react-native-carousel-view';
+import CarouselView from 'react-native-carousel-view';
 import TouchableImage from './touchable-image';
 
 type Props = {
@@ -13,7 +13,7 @@ type Props = {
   onPageChange: (number, boolean) => void,
 }
 
-export default class Carosuel extends Component {
+export default class Carousel extends Component {
   props: Props
   scrolling: boolean
 
@@ -47,7 +47,7 @@ export default class Carosuel extends Component {
   render() {
     const {onPressImage, images, ...rest} = this.props;
     return (
-      <Carousel
+      <CarouselView
         {...rest}
         onPageChange={this._setPageChange}
         onScroll={this._onScroll}
@@ -65,7 +65,7 @@ export default class Carosuel extends Component {
             );
           })
         }
-      </Carousel>
+      </CarouselView>
     );
   }
 }
