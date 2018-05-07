@@ -25,6 +25,6 @@
   },
   "dependencies": {
     "react-native-carousel-view": "^0.5.1",
-    "react-native-image-zoom-viewer": "github:bradsolves/react-native-image-viewer"
+    "react-native-image-zoom-viewer": "^2.2.3"
   }
 }
