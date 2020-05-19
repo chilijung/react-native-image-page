@@ -56,7 +56,7 @@ export default class ImageCarousel extends Component {
     (this: any)._closeModal = this._closeModal.bind(this);
   }
 
-  componentWillReceiveProps(nextProps) {
+  componentDidUpdate(nextProps) {
     if (nextProps.showModal !== this.state.showModal) {
       this.setState({ showModal: nextProps.showModal });
     }
