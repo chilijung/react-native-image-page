@@ -1,6 +1,6 @@
 {
   "name": "react-native-image-page",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "description": "react-native image carousel",
   "main": "./src/image-carousel.js",
   "directories": {
@@ -25,6 +25,7 @@
   },
   "dependencies": {
     "react-native-carousel-view": "^0.5.1",
-    "react-native-image-zoom-viewer": "^2.0.6"
-  }
+    "react-native-image-zoom-viewer": "^3.0.0"
+  },
+  "repository": "https://github.com/bradsolves/react-native-image-page.git"
 }
